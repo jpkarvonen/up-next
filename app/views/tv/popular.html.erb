@@ -1,2 +1,17 @@
-<h1>Tv#popular</h1>
-<p>Find me in app/views/tv/popular.html.erb</p>
+<h1 class="main-title">What TV Show Is Up Next?</h1>
+<h4>We're here to help you find the next show to binge (but we claim zero liability for your mindless addiction!) </h4>
+
+<h4>Search for a show above or checkout what's hot below:</h4>
+<div class="row">
+  <% @pop_tv["results"].each do |tv_show| %>
+    <div class="col-sm-3">
+      <div class="image-text-container">
+        <% if tv_show["backdrop_path"] == nil %>
+          <%= image_tag("/assets/placeholder.png", class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://image.tmdb.org/t/p/w185#{tv_show["backdrop_path"]}", class: "img-responsive") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
