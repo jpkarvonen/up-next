@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UpNext</title>
+    <title>Up Next</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+          <%= link_to image_tag("/assets/up_next_logo.jpg", class: "navbar-brand"), tv_popular_path %>
+        </div>
+
+        <div>
+          <ul class= "nav navbar-nav">
+            <li><%= link_to "TV Shows", tv_popular_path %></li>
+          </ul>
+        </div>
+      </nav>
+
+     <div class="container">
+       <%= yield %>
+     </div>
+
+    </div>
   </body>
 </html>
