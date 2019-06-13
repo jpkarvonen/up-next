@@ -1,2 +1,23 @@
-<h1>Tv#search</h1>
-<p>Find me in app/views/tv/search.html.erb</p>
+<h1 class="main-title">Results</h1>
+
+<% if @search_results["results"] == nil %>
+  <h4>Give us something to work with! Just enter something, anything, into the search bar!</h4>
+<% elsif @search_results["results"].empty? %>
+  <h4>Huh? Nothing... </h4>
+<% else %>
+
+  <div class="row">
+    <% @search_results["results"].each do |tv_show| %>
+      <div class="col-md-3">
+        <div class="image-text-container">
+          <% if tv_show["backdrop_path"] == nil %>
+            <%= image_tag("/assets/placeholder.png", class: "img-responsive") %>
+          <% else %>
+            <%= image_tag("http://image.tmdb.org/t/p/w185#{tv_show["backdrop_path"]}", class: "img-responsive") %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+   </div>
+
+<% end %>

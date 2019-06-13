@@ -3,7 +3,7 @@ require 'json'
 
 module Tmdb
   class << self
-    def get_api
+    def api_key
       Rails.application.credentials.api[:key]
     end
 
@@ -13,7 +13,12 @@ module Tmdb
 
     #TV API CALLS
     def get_pop_tv
-      response = HTTParty.get("#{base}trending/tv/day?api_key=#{get_api}")
+      response = HTTParty.get("#{base}trending/tv/day?api_key=#{api_key}")
+      JSON.parse(response.body)
+    end
+
+    def search_tv(query, page=1)
+      response = HTTParty.get("#{base}search/tv?api_key=#{api_key}&language=en-US&query=#{query}&page=#{page}")
       JSON.parse(response.body)
     end
   end
