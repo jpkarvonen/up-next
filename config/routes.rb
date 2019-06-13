@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'tv/popular'
-  get 'tv/show/:id' => "tv#show", :as => :show_tv_with_parameter
+  get 'tv/show/:id' => "tv#show", :as => :tv_show
   get 'tv/search'
 
   root 'tv#popular'

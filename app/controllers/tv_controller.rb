@@ -8,6 +8,6 @@ class TvController < ApplicationController
   end
 
   def search
-    @search_results = ::Tmdb.search_tv(params[:query], params[:page])
+    @search_results = ::Tmdb.search_tv(params[:query])
   end
 end

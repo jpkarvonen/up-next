@@ -4,13 +4,15 @@
     <title>Up Next</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div>
+    <div class="fullscreen gradient">
       <nav class="navbar navbar-inverse">
         <div class="navbar-header">
           <%= link_to image_tag("/assets/up_next_logo.jpg", class: "navbar-brand"), tv_popular_path %>
