@@ -17,6 +17,11 @@ module Tmdb
       JSON.parse(response.body)
     end
 
+    def get_tv_details(id)
+      response = HTTParty.get("#{base}tv/#{id}?api_key=#{api_key}")
+      JSON.parse(response.body)
+    end
+
     def search_tv(query, page=1)
       response = HTTParty.get("#{base}search/tv?api_key=#{api_key}&language=en-US&query=#{query}&page=#{page}")
       JSON.parse(response.body)

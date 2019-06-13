@@ -1,2 +1,29 @@
-<h1>Tv#show</h1>
-<p>Find me in app/views/tv/show.html.erb</p>
+<h1 class="main-title"><%= @tv_details["name"] %></h1>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="overview-container">
+      <% if @tv_details["backdrop_path"] == nil %>
+        <%= image_tag("/assets/placeholder_lg.png", class: "img-responsive") %>
+      <% else %>
+        <%= image_tag("http://image.tmdb.org/t/p/w500#{@tv_details["backdrop_path"]}", class: "img-responsive") %>
+      <% end %>
+     <div class= overview-details>
+       <p>Homepage: <%= @tv_details["homepage"].empty? ? "Not sure -- maybe google it?" : (link_to @tv_details["homepage"], @tv_details["homepage"], class: "link-to-text-color") %></p>
+       <p>Created By: <%= @tv_details["created_by"].empty? ? "Sorry we don't know!" : @tv_details["created_by"][0]["name"] %></p>
+       <p>Genres:</p>
+         <ul>
+           <% @tv_details["genres"].each do |genre| %>
+             <li><%= genre["name"] %></li>
+           <% end %>
+         </ul>
+       <p>First Air Date: <%= @tv_details["first_air_date"] == nil ? "Hmm.. It's unclear." : @tv_details["first_air_date"] %></p>
+       <p>Next Episode Date: <%= @tv_details["next_episode_to_air"] == nil ? "Nothing Scheduled" : @tv_details["next_episode_to_air"]["air_date"] %></p>
+     </div>
+    </div>
+  </div>
+</div>
+
+<div class="show-details">
+ <h4><%= @tv_details["overview"].empty? ? "None" : @tv_details["overview"] %></h4>
+</div>

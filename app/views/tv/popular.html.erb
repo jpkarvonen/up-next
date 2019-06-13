@@ -11,6 +11,7 @@
         <% else %>
           <%= image_tag("http://image.tmdb.org/t/p/w185#{tv_show["backdrop_path"]}", class: "img-responsive") %>
         <% end %>
+        <div class="text-block"><%= link_to tv_show["name"], show_tv_with_parameter_path(tv_show["id"]), class: 'link-to-text-color' %></div>
       </div>
     </div>
   <% end %>
