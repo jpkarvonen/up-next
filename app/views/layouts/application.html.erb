@@ -19,13 +19,16 @@
         </div>
 
         <div>
-          <ul class= "nav navbar-nav">
-            <li><%= link_to "TV Shows", tv_popular_path %></li>
-          </ul>
-          <div class="navbar-form navbar-left navbar-nav">
-           <%= render "tv_search"%>
+         <ul class="nav navbar-nav">
+           <li><%= link_to "TV Shows", tv_popular_path, class: "link-to-text-color"%></li>
+           <li><%= link_to "Movies", movie_popular_path, class: "link-to-text-color"%></li>
+         </ul>
+         <div class="navbar-form navbar-left navbar-nav">
+           <%= render "tv_search" if @tv %>
+           <%= render "movie_search" if @movie %>
          </div>
-        </div>
+       </div>
+
       </nav>
 
      <div class="container">

@@ -1,0 +1,18 @@
+<h1 class="main-title">What Movie Is Up Next?</h1>
+<h4>We're here to help you find the next movie to watch (but we claim zero liability for your mindless addiction!) </h4>
+
+<h4>Search for a movie above or checkout what's hot below:</h4>
+<div class="row">
+  <% @pop_movie["results"].each do |movie| %>
+    <div class="col-sm-3">
+      <div class="image-text-container">
+        <% if movie["backdrop_path"] == nil %>
+          <%= image_tag("/assets/placeholder.png", class: "img-responsive") %>
+        <% else %>
+          <%= image_tag("http://image.tmdb.org/t/p/w185#{movie["backdrop_path"]}", class: "img-responsive") %>
+        <% end %>
+        <div class="text-block"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

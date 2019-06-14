@@ -1,0 +1,36 @@
+<h1 class="main-title">Results</h1>
+
+<% if @search_results["results"] == nil %>
+  <h4>Give us something to work with! Just enter something, anything, into the search bar!</h4>
+<% elsif @search_results["results"].empty? %>
+  <h4>Huh? Nothing... </h4>
+<% else %>
+
+  <div class="row">
+    <% @search_results["results"].each do |movie| %>
+      <div class="col-md-3">
+        <div class="image-text-container">
+          <% if movie["backdrop_path"] == nil %>
+            <%= image_tag("/assets/placeholder.png", class: "img-responsive") %>
+          <% else %>
+            <%= image_tag("http://image.tmdb.org/t/p/w185#{movie["backdrop_path"]}", class: "img-responsive") %>
+          <% end %>
+          <div class="text-block"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
+       </div>
+     </div>
+    <% end %>
+  </div>
+
+  <nav aria-label="..." class= "search-nav">
+    <ul class="pagination">
+      <li class="page-item"><%= link_to "Previous", movie_search_path(@query, @previous ), class: "page-link" %></li>
+      <% @search_results["total_pages"].times do | page | %>
+        <% page += 1 %>
+        <li class="page-item"><%= link_to page, movie_search_path(@query, page), class: "page-link" %></li>
+      <% end %>
+      <% @next <= @search_results["total_pages"] ? @next : @next = @search_results["total_pages"] %>
+      <li class="page-item"><%= link_to "Next", movie_search_path(@query, @next), class: "page-link" %></li>
+    </ul>
+  </nav>
+
+<% end %>
