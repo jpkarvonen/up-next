@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get 'tv/popular'
   get 'tv/show/:id' => "tv#show", :as => :tv_show
-  get 'tv/search'
+  get 'tv/search/(:query/:page)' => 'tv#search', :as => :tv_search
 
   root 'tv#popular'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

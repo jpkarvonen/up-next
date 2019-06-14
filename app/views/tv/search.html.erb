@@ -21,4 +21,16 @@
     <% end %>
    </div>
 
+   <nav aria-label="..." class= "search-nav">
+     <ul class="pagination">
+       <li class="page-item"><%= link_to "Previous", tv_search_path(@query, @previous ), class: "page-link" %></li>
+       <% @search_results["total_pages"].times do | page | %>
+         <% page += 1 %>
+         <li class="page-item"><%= link_to page, tv_search_path(@query, page), class: "page-link" %></li>
+       <% end %>
+       <% @next <= @search_results["total_pages"] ? @next : @next = @search_results["total_pages"] %>
+       <li class="page-item"><%= link_to "Next", tv_search_path(@query, @next), class: "page-link" %></li>
+     </ul>
+   </nav>
+
 <% end %>

@@ -8,6 +8,13 @@ class TvController < ApplicationController
   end
 
   def search
-    @search_results = ::Tmdb.search_tv(params[:query])
+    @page = params[:page]
+    @query = params[:query]
+    @search_results = ::Tmdb.search_tv(@query, @page)
+    @page_number = @page.to_i
+    @previous = @page_number >= 2 ? @page_number - 1 : @page_number = 1
+    @search_results = ::Tmdb.search_tv(params[:query], params[:page])
+    @next = @page_number + 1
+    @next <= @search_results["total_pages"] ? @page_number + 1 : @next = @search_results["total_pages"]
   end
 end
