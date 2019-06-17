@@ -1,4 +1,4 @@
-<h1 class="main-title"><%= @movie_details["name"] %></h1>
+<h1 class="main-title"><%= @movie_details["title"] %></h1>
 
 <div class="row">
   <div class="col-xs-12">
@@ -25,3 +25,26 @@
 <div class="show-details">
  <h4><%= @movie_details["overview"].nil? ? "None" : @movie_details["overview"] %></h4>
 </div>
+
+<% if !@reviews["results"].empty? %>
+  <div class="show-details reviews">
+    <h4 class="review-title">Reviews</h4>
+      <% @reviews["results"].each do |review| %>
+        <div class="review-text">
+            <div class="review-author"><%= review["author"]%>:</div>
+            <% if review["content"].length > 600 %>
+              <%= truncate(review["content"], length: 600) %>
+              <%= link_to '...Read more', '', class: "read-more-#{review["id"]}" %>
+                <script>
+                  $('.read-more-<%= review["id"] %>').on('click', function(e) {
+                    e.preventDefault()
+                    $(this).parent().html('<%= escape_javascript review["content"] %>')
+                  })
+                </script>
+            <% else %>
+              <%= review["content"] %>
+            <% end %>
+        </div>
+      <% end %>
+  </div>
+<% end %>

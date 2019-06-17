@@ -36,6 +36,33 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(37,136,60)), to(rgba(0,0,0,0.5)));
 }
 
+.reviews {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0.0)));
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+.review-text {
+  padding: 15px;
+  color: rgb(20, 20, 20);
+}
+
+.review-title {
+  padding-left: 15px;
+  font-size: 30px;
+  font-family: 'Lobster', cursive;
+  color: rgb(216, 202, 68);
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.review-author {
+  font-weight: bold;
+}
+
 .navbar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.0)));
 }

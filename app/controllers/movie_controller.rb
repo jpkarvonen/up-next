@@ -7,6 +7,7 @@ class MovieController < ApplicationController
 
   def show
     @movie_details = ::Tmdb.get_movie_details(params[:id])
+    @reviews = ::Tmdb.get_movie_review(params[:id])
   end
 
   def search
