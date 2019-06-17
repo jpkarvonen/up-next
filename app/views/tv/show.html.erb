@@ -28,12 +28,13 @@
  <h4><%= @tv_details["overview"].empty? ? "None" : @tv_details["overview"] %></h4>
 </div>
 
-<% if !@reviews["results"].empty? %>
-  <div class="show-details reviews">
-    <h4 class="review-title">Reviews</h4>
+<div class="show-details reviews">
+  <h4 class="review-title">Reviews</h4>
+    <% if !@reviews["results"].empty? %>
+
       <% @reviews["results"].each do |review| %>
         <div class="review-text">
-            <div class="review-author"><%= review["author"]%>:</div>
+          <div class="review-author"><%= review["author"]%>:</div>
             <% if review["content"].length > 600 %>
               <%= truncate(review["content"], length: 600) %>
               <%= link_to '...Read more', '', class: "read-more-#{review["id"]}" %>
@@ -48,5 +49,8 @@
             <% end %>
         </div>
       <% end %>
-  </div>
-<% end %>
+
+    <% else %>
+      <div class="review-text"><p>No one ain't sayin nothin about this...</p></div>
+    <% end %>
+</div>
