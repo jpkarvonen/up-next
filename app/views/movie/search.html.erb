@@ -11,9 +11,9 @@
       <div class="col-md-3">
         <div class="image-text-container">
           <% if movie["backdrop_path"] == nil %>
-            <%= image_tag("/assets/placeholder.png", class: "img-responsive") %>
+            <%= link_to image_tag("/assets/placeholder.png", class: "img-responsive"), movie_show_path(movie["id"]) %>
           <% else %>
-            <%= image_tag("http://image.tmdb.org/t/p/w185#{movie["backdrop_path"]}", class: "img-responsive") %>
+            <%= link_to image_tag("http://image.tmdb.org/t/p/w185#{movie["backdrop_path"]}", class: "img-responsive"), movie_show_path(movie["id"]) %>
           <% end %>
           <% if movie["title"].length > 40 %>
             <div class="text-block-sm-font"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
