@@ -15,7 +15,11 @@
           <% else %>
             <%= image_tag("http://image.tmdb.org/t/p/w185#{tv_show["backdrop_path"]}", class: "img-responsive") %>
           <% end %>
-          <div class="text-block"><%= link_to tv_show["name"], tv_show_path(tv_show["id"]), class: 'link-to-text-color' %></div>
+          <% if tv_show["name"].length > 40 %>
+            <div class="text-block-sm-font"><%= link_to tv_show["name"], tv_show_path(tv_show["id"]), class: 'link-to-text-color' %></div>
+          <% else %>
+            <div class="text-block"><%= link_to tv_show["name"], tv_show_path(tv_show["id"]), class: 'link-to-text-color' %></div>
+          <% end %>
         </div>
       </div>
     <% end %>

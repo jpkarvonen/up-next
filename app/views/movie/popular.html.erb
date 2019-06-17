@@ -11,7 +11,11 @@
         <% else %>
           <%= image_tag("http://image.tmdb.org/t/p/w185#{movie["backdrop_path"]}", class: "img-responsive") %>
         <% end %>
-        <div class="text-block"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
+        <% if movie["title"].length > 40 %>
+          <div class="text-block-sm-font"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
+        <% else %>
+          <div class="text-block"><%= link_to movie["title"], movie_show_path(movie["id"]), class: 'link-to-text-color' %></div>
+        <% end %>
       </div>
     </div>
   <% end %>

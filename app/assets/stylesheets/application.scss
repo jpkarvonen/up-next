@@ -84,10 +84,28 @@ h4, h5, h6, p, li {
 
 .text-block {
  position: absolute;
+ top: 15px;
  bottom: 20px;
  right: 15px;
+ left: 15px;
  color: rgb(216, 202, 68);
  font-size: 18px;
+ font-family: 'Lobster', cursive;
+ text-shadow:
+   -1px -1px 0 #000,
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
+   1px 1px 0 #000;
+}
+
+.text-block-sm-font {
+ position: absolute;
+ top: 15px;
+ bottom: 20px;
+ right: 15px;
+ left: 15px;
+ color: rgb(216, 202, 68);
+ font-size: 15px;
  font-family: 'Lobster', cursive;
  text-shadow:
    -1px -1px 0 #000,
