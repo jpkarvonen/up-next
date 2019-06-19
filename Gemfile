@@ -76,3 +76,5 @@ gem 'bootstrap-sass'
 gem 'json', '~> 1.8', '>= 1.8.3'
 
 gem 'httparty'
+
+gem 'rails_12factor', group: :production
