@@ -7,6 +7,13 @@ RSpec.describe TvController, type: :controller do
       get :popular
       expect(response).to have_http_status(:success)
     end
+
+    let(:popular_results) { ::Tmdb.get_pop_tv}
+
+    it "responds with JSON hash containing popular results" do
+      expect(popular_results).to be_kind_of(Hash)
+      expect(popular_results).to include("page" => 1)
+    end
   end
 
   describe "GET #show" do
@@ -24,7 +31,7 @@ RSpec.describe TvController, type: :controller do
 
     let(:tv_details) { ::Tmdb.get_tv_details(87108) }
 
-    it "response with JSON hash containing expected TV Show Details" do
+    it "responds with JSON hash containing expected TV Show Details" do
       expect(tv_details).to be_kind_of(Hash)
     end
   end

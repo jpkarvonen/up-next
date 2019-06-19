@@ -52,7 +52,7 @@ Due to changes between Rails 4 and 5 (`secret.yml` file was replaced with `crede
 
 I also had an issue with assets pipeline not working properly in Heroku so my images in `assets/images` would not load. I resolved this by adding `config.assets.compile = true` to `config/environments/production.rb`
 
-I still have a persisting issue with the assets pipeline. I use the following code, utilizing jquery, in my show views (both Tv and Movie) so that reviews over 600 characters long are truncated and can be expanded by clicking "Read More":
+This also caused issues with I use the following code, utilizing jquery, in my show views (both Tv and Movie) so that reviews over 600 characters long are truncated and can be expanded by clicking "Read More":
 
 ```
 <% if review["content"].length > 600 %>
@@ -69,9 +69,11 @@ I still have a persisting issue with the assets pipeline. I use the following co
 <% end %>
 ```
 
-I added `//= require jquery` to `config/javascripts/application.js` to make the above code work properly in development (it still does what it is supposed to do locally). But in production, clicking "Read More"  fails to expand a truncated review. With more time, I would work to resolve this.
+I added `//= require jquery` to `config/javascripts/application.js` to make the above code work properly in development But for it to work in production, I had to add `config.assets.debug = true` in `config/environments/production.rb` and also add `rails_12factor` to the production group in my gem file.
 
-With more time, I would also do the following:
+## IMPROVEMENTS
+
+With more time, I would add the following:
 * Create a search controller so I don't have to repeat the logic used in Tv and Movie controller search methods (not a huge issue given the small application size, but this would help if I were to add features in the future)
 * Add features for users (user model, sign up in and out, user roles, profile page, ability to write review and create a list of favorite shows/movies)
 * Autocomplete search

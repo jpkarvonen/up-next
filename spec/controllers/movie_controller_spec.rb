@@ -7,6 +7,13 @@ RSpec.describe MovieController, type: :controller do
       get :popular
       expect(response).to have_http_status(:success)
     end
+
+    let(:popular_results) { ::Tmdb.get_pop_movie}
+
+    it "responds with JSON hash containing search results" do
+      expect(popular_results).to be_kind_of(Hash)
+      expect(popular_results).to include("page" => 1)
+    end
   end
 
   describe "GET #show" do
@@ -42,7 +49,7 @@ RSpec.describe MovieController, type: :controller do
 
     let(:search_results) { ::Tmdb.search_movie("sample")}
 
-    it "response with JSON hash containing search results" do
+    it "responds with JSON hash containing search results" do
       expect(search_results).to be_kind_of(Hash)
     end
   end
