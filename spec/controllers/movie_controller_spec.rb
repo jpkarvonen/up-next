@@ -33,8 +33,8 @@ RSpec.describe MovieController, type: :controller do
 
     it "response with JSON hash containing expected Movie Details" do
       expect(movie_details).to be_kind_of(Hash)
+      expect(movie_details).to include("id" => 320288)
     end
-
   end
 
   describe "GET #search" do
@@ -51,6 +51,7 @@ RSpec.describe MovieController, type: :controller do
 
     it "responds with JSON hash containing search results" do
       expect(search_results).to be_kind_of(Hash)
+      expect(search_results).to include("page" => 1)
     end
   end
 end

@@ -33,6 +33,7 @@ RSpec.describe TvController, type: :controller do
 
     it "responds with JSON hash containing expected TV Show Details" do
       expect(tv_details).to be_kind_of(Hash)
+      expect(tv_details).to include("id" => 87108)
     end
   end
 
@@ -50,6 +51,7 @@ RSpec.describe TvController, type: :controller do
 
     it "response with JSON hash containing search results" do
       expect(search_results).to be_kind_of(Hash)
+      expect(search_results).to include("page" => 1)
     end
   end
 end
