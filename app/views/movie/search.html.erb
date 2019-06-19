@@ -32,7 +32,6 @@
         <% page += 1 %>
         <li class="page-item"><%= link_to page, movie_search_path(@query, page), class: "page-link" %></li>
       <% end %>
-      <% @next <= @search_results["total_pages"] ? @next : @next = @search_results["total_pages"] %>
       <li class="page-item"><%= link_to "Next", movie_search_path(@query, @next), class: "page-link" %></li>
     </ul>
   </nav>

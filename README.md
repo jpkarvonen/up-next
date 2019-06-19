@@ -75,7 +75,7 @@ I added `//= require jquery` to `config/javascripts/application.js` to make the 
 
 With more time, I would add the following:
 * Create a search controller so I don't have to repeat the logic used in Tv and Movie controller search methods (not a huge issue given the small application size, but this would help if I were to add features in the future)
-* Add features for users (user model, sign up in and out, user roles, profile page, ability to write review and create a list of favorite shows/movies)
+* Add features for users (user model, sign up in and out, user roles, profile page, ability to write reviews and create a list of favorite shows/movies)
 * Autocomplete search
 * Similar items list in Tv and Movie show pages
 * Actor controller with similar methods to Tv and Movie controllers

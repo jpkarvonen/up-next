@@ -18,7 +18,7 @@ class TvController < ApplicationController
     @previous = @page_number >= 2 ? @page_number - 1 : @page_number = 1
     @total_pages = @search_results["total_pages"] ? @search_results["total_pages"] : @total_pages =  0
     @next = @page_number + 1
-    @next <= @total_pages ? @page_number + 1 : @next = @total_pages
+    @next < @total_pages ? @page_number + 1 : @next = @total_pages
   end
 
   def tv
