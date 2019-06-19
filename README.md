@@ -29,7 +29,7 @@ My application also adds the following features:
 
 ## SOLUTION
 
-To complete this assignment, I chose to utilize Rails 5 for front and backends, and, essentially, build according to MVC architectural patterns. But rather than building out a database and creating my own models, I use the Movie Database API as the "M" component of MVC. I chose Rails because I am quite comfortable with framework -- and enjoy it! And MVC architecture provided a simple path forward to the solution.
+To complete this assignment, I chose to utilize Rails 5 for front and backends, and, essentially, build according to MVC architectural patterns. But rather than building out a database and creating my own models, I use the Movie Database API as the "M" component of MVC. I chose Rails because I am quite comfortable with the framework -- and I enjoy it! And MVC architecture provided a simple path forward to the solution.
 
 I implemented two controllers, Tv and Movie, which include the following methods:
 * `popular`
