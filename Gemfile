@@ -56,6 +56,7 @@ end
 group :production do
   # Use pg as the production database for Active Record
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :test do
@@ -76,5 +77,3 @@ gem 'bootstrap-sass'
 gem 'json', '~> 1.8', '>= 1.8.3'
 
 gem 'httparty'
-
-gem 'rails_12factor', group: :production

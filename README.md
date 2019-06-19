@@ -49,3 +49,31 @@ I deployed the Up Next application on Heroku: https://up-next-bloc-assignment.he
 ## CHALLENGES
 
 Due to changes between Rails 4 and 5 (`secret.yml` file was replaced with `credentials.yml.enc`), I was not immediately sure how to securely store the API key as a global variable in 5. Through some research I learned that I could edit that file through the command line with the following command: `EDITOR="atom --wait" bin/rails credentials:edit` And I could then access my key with: `Rails.application.credentials.api[:key]` which is used in `tmdb.rb`. I also had to learn how to use the Rails master key in Heroku so my production code could also access the encrypted API key.
+
+I also had an issue with assets pipeline not working properly in Heroku so my images in `assets/images` would not load. I resolved this by adding `config.assets.compile = true` to `config/environments/production.rb`
+
+I still have a persisting issue with the assets pipeline. I use the following jquery script in my show views (both Tv and Movie) so that reviews over 600 characters long are truncated and can be expanded by clicking "Read More":
+
+```
+<% if review["content"].length > 600 %>
+  <%= truncate(review["content"], length: 600) %>
+  <%= link_to '...Read more', '', class: "read-more-#{review["id"]}" %>
+    <script>
+      $('.read-more-<%= review["id"] %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript review["content"] %>')
+      })
+    </script>
+<% else %>
+  <%= review["content"] %>
+<% end %>
+```
+
+I added `//= require jquery` to `config/javascripts/application.js` to make the above code work properly in development (it still does what it is supposed to do locally). But in production, clicking "Read More"  fails to expand a truncated review. With more time, I would work to resolve this.
+
+With more time, I would also do the following:
+* Create a search controller so I don't have to repeat the logic used in Tv and Movie controller search methods (not a huge issue given the small application size, but this would help if I were to add features in the future)
+* Add features for users (user model, sign up in and out, user roles, profile page, ability to write review and create a list of favorite shows/movies)
+* Autocomplete search
+* Similar items list in Tv and Movie show pages
+* Actor controller with similar methods to Tv and Movie controllers
