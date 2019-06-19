@@ -1,6 +1,6 @@
 # README
 
-Up Next is an application I developed for the Take-Home Assignment portion of Bloc.io's final certification.
+[Up Next](https://up-next-bloc-assignment.herokuapp.com/) is an application I developed for the Take-Home Assignment portion of Bloc.io's final certification.
 
 
 ## PROBLEM
@@ -29,7 +29,7 @@ My application also adds the following features:
 
 ## SOLUTION
 
-To complete this assignment, I chose to utilize Rails 5 for front and backends, and, essentially, build according to MVC architectural patterns. But rather than building out a database and creating my own models, I use the Movie Database API as the "M" component of MVC. I chose Rails because I am quite comfortable with it and enjoy using it. And MVC architecture provided a simple path forward to the solution.
+To complete this assignment, I chose to utilize Rails 5 for front and backends, and, essentially, build according to MVC architectural patterns. But rather than building out a database and creating my own models, I use the Movie Database API as the "M" component of MVC. I chose Rails because I am quite comfortable with framework -- and enjoy it! And MVC architecture provided a simple path forward to the solution.
 
 I implemented two controllers, Tv and Movie, which include the following methods:
 * `popular`
@@ -52,7 +52,7 @@ Due to changes between Rails 4 and 5 (`secret.yml` file was replaced with `crede
 
 I also had an issue with assets pipeline not working properly in Heroku so my images in `assets/images` would not load. I resolved this by adding `config.assets.compile = true` to `config/environments/production.rb`
 
-I still have a persisting issue with the assets pipeline. I use the following jquery script in my show views (both Tv and Movie) so that reviews over 600 characters long are truncated and can be expanded by clicking "Read More":
+I still have a persisting issue with the assets pipeline. I use the following code, utilizing jquery, in my show views (both Tv and Movie) so that reviews over 600 characters long are truncated and can be expanded by clicking "Read More":
 
 ```
 <% if review["content"].length > 600 %>
@@ -77,3 +77,5 @@ With more time, I would also do the following:
 * Autocomplete search
 * Similar items list in Tv and Movie show pages
 * Actor controller with similar methods to Tv and Movie controllers
+* Truncate pagination
+* Improve UI/UX for mobile
