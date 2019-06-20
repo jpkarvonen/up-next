@@ -1,6 +1,7 @@
 # README
 
-[Up Next](https://up-next-bloc-assignment.herokuapp.com/) is an application I developed for the Take-Home Assignment portion of Bloc.io's final certification.
+[Up Next](https://up-next-bloc-assignment.herokuapp.com/) is an application I developed for the Take-Home Assignment portion of Bloc.io's final certification. [Skip ahead to local setup if you want!](#local-setup)
+
 
 ## PROBLEM
 
