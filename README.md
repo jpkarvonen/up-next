@@ -96,8 +96,9 @@ With more time, I would add the following:
   ```
     api:
       key: xxxxxxxxxxxxxxxxxxxxxx
-      
+
    ```
    With that convention, the key is accessible in your application with `Rails.application.credentials.api[:key]` as it is in `lib/tmdb.rb`
+
 5. At this point you should be ready to launch! Run the command `rails s` to start the rails server
 6. All set! Navigate your browser to http://localhost:3000
