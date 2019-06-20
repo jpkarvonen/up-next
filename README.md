@@ -2,7 +2,6 @@
 
 [Up Next](https://up-next-bloc-assignment.herokuapp.com/) is an application I developed for the Take-Home Assignment portion of Bloc.io's final certification.
 
-
 ## PROBLEM
 
 The assignment is to create a TV show discovery web app utilizing the [Movie Database API](https://developers.themoviedb.org/3/getting-started).
@@ -81,3 +80,22 @@ With more time, I would add the following:
 * Actor controller with similar methods to Tv and Movie controllers
 * Truncate pagination
 * Improve UI/UX for mobile
+
+## LOCAL SETUP
+
+1. Make a copy of your own by forking! Go to https://github.com/jpkarvonen/up-next and hit the fork button up in the top right
+2. Git clone https://github.com/{YOUR GITHUB USERNAME}/up-next.git to pull it down to your local system
+3. Ruby dependencies
+  * Make sure you have a ruby version manager installed; I recommend either [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
+  * Install the app's version of Ruby! You can see the current version of ruby in the `Gemfile`. Install it with `rbenv install VERSION` or `rvm install VERSION`, depending on what you're using
+  * Run the command `gem install bundler && bundle install` to install dependencies, including `rails`
+4. The Movie Database API key setup
+  * Follow the TMDB's instructions [here](https://developers.themoviedb.org/3/getting-started/introduction) to obtain your own API key  
+  * This application runs on Rails 5, and thus you should store your API key in `credentials.yml.enc`. You can edit this file by typing the following into the command line: `EDITOR="[YOUR EDITOR] --wait" bin/rails credentials:edit`, e.g. I use Atom, so I would enter `EDITOR="atom --wait" bin/rails credentials:edit`
+  * The file should open and now be human-readable. From there you can edit the file to store the key with the following convention:
+  ```api:
+       key: xxxxxxxxxxxxxxxxxxxxxx
+   ```
+   With that convention, the key is accessible in your application with `Rails.application.credentials.api[:key]` as it is in `lib/tmdb.rb`
+5. At this point you should be ready to launch! Run the command `rails s` to start the rails server
+6. All set! Navigate your browser to http://localhost:3000
