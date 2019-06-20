@@ -86,13 +86,13 @@ With more time, I would add the following:
 1. Make a copy of your own by forking! Go to https://github.com/jpkarvonen/up-next and hit the fork button up in the top right
 2. Git clone https://github.com/{YOUR GITHUB USERNAME}/up-next.git to pull it down to your local system
 3. Ruby dependencies
-  * Make sure you have a ruby version manager installed; I recommend either [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
-  * Install the app's version of Ruby! You can see the current version of ruby in the `Gemfile`. Install it with `rbenv install VERSION` or `rvm install VERSION`, depending on what you're using
-  * Run the command `gem install bundler && bundle install` to install dependencies, including `rails`
+    * Make sure you have a ruby version manager installed; I recommend either [rbenv](https://github.com/rbenv/rbenv) or [rvm](https://rvm.io/)
+    * Install the app's version of Ruby! You can see the current version of ruby in the `Gemfile`. Install it with `rbenv install VERSION` or `rvm install VERSION`, depending on what you're using
+    * Run the command `gem install bundler && bundle install` to install dependencies, including `rails`
 4. The Movie Database API key setup
-  * Follow the TMDB's instructions [here](https://developers.themoviedb.org/3/getting-started/introduction) to obtain your own API key  
-  * This application runs on Rails 5, and thus you should store your API key in `credentials.yml.enc`. You can edit this file by typing the following into the command line: `EDITOR="[YOUR EDITOR] --wait" bin/rails credentials:edit`, e.g. I use Atom, so I would enter `EDITOR="atom --wait" bin/rails credentials:edit`
-  * The file should open and now be human-readable. From there you can edit the file to store the key with the following convention:
+    * Follow the TMDB's instructions [here](https://developers.themoviedb.org/3/getting-started/introduction) to obtain your own API key  
+    * This application runs on Rails 5, and thus you should store your API key in `credentials.yml.enc`. You can edit this file by typing the following into the command line: `EDITOR="[YOUR EDITOR] --wait" bin/rails credentials:edit`, e.g. I use Atom, so I would enter `EDITOR="atom --wait" bin/rails credentials:edit`
+    * The file should open and now be human-readable. From there you can edit the file to store the key with the following convention:
   ```
     api:
       key: xxxxxxxxxxxxxxxxxxxxxx
